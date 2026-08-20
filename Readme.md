@@ -44,7 +44,7 @@ $$
 S_{ij} = \frac{v_i^\top t_j}{\tau}
 $$
 
-where \(\tau\) is a learned or fixed temperature. The diagonal contains the intended matches. We optimize both image-to-text and text-to-image cross-entropy losses:
+where $\tau$ is a learned or fixed temperature. The diagonal contains the intended matches. We optimize both image-to-text and text-to-image cross-entropy losses:
 
 $$
 \mathcal{L} = \frac{1}{2}
@@ -52,6 +52,7 @@ $$
 \operatorname{CE}(S, I) + \operatorname{CE}(S^\top, I)
 \right]
 $$
+
 
 This formulation follows the paired-batch contrastive pattern used in CLIP-style training.[1] Because this notebook intentionally reuses class-derived prompts, its loss treats all same-class image-text combinations as positives rather than incorrectly treating repeated class prompts as negatives. PyTorch's multimodal tooling also emphasizes composable encoders, transforms, projection/fusion layers, losses, datasets, and evaluation utilities.[2]
 
